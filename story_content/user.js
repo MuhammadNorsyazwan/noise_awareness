@@ -1,4 +1,4 @@
-function ExecuteScript(strId)
+tfunction ExecuteScript(strId)
 {
   switch (strId)
   {
@@ -38,7 +38,7 @@ var thedate =(
 player.GetVar("SystemDate")
 )
 
-var urlstring = ("index.htm?print=" + thename + "&" + theic + "&" + thedate);
+var urlstring = ("certificate.html?print=" + thename + "&" + theic + "&" + thedate);
 
 window.open(urlstring,"_blank","toolbar=yes,scrollbars=yes,resizable=yes,width=1200,height=700");
 }
