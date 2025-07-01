@@ -38,7 +38,9 @@ var thedate =(
 player.GetVar("SystemDate")
 )
 
-var urlstring = ("certificate.html?print=" + thename + "&" + theic + "&" + thedate);
+var urlstring = "certificate.html?name=" + encodeURIComponent(thename) + 
+                "&ic=" + encodeURIComponent(theic) + 
+                "&date=" + encodeURIComponent(thedate);
 
 window.open(urlstring,"_blank","toolbar=yes,scrollbars=yes,resizable=yes,width=1200,height=700");
 }
