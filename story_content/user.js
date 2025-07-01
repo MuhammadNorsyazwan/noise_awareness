@@ -22,26 +22,18 @@ var player = GetPlayer();
 player.SetVar("SystemDate",dateString);
 }
 
-function Script2()
-{
+function Script2() {
   var player = GetPlayer();
 
-var thename =(
-player.GetVar("name")
-)
+  var thename = player.GetVar("name");
+  var theic = player.GetVar("ic");
+  var thedate = player.GetVar("SystemDate");
 
-var theic =(
-player.GetVar("ic")
-)
+  var urlstring = "certificate.html?name=" + encodeURIComponent(thename) + 
+                  "&ic=" + encodeURIComponent(theic) + 
+                  "&date=" + encodeURIComponent(thedate);
 
-var thedate =(
-player.GetVar("SystemDate")
-)
-
-var urlstring = "certificate.html?name=" + encodeURIComponent(thename) + 
-                "&ic=" + encodeURIComponent(theic) + 
-                "&date=" + encodeURIComponent(thedate);
-
-window.open(urlstring,"_blank","toolbar=yes,scrollbars=yes,resizable=yes,width=1200,height=700");
+  window.open(urlstring, "_blank");
 }
+
 
