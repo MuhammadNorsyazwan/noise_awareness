@@ -1,43 +1,51 @@
-<title>Certificate of Attendance</title>
-<style type="text/css">
-body,td,th {
-	font-size: large;
-}
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Certificate of Attendance</title>
+  <style type="text/css">
+    body, td, th {
+      font-size: large;
+    }
+  </style>
 </head>
-
 <body>
-	<script type="text/javascript">
-	  const urlParams = new URLSearchParams(window.location.search);
-	
-	  const learner_name = urlParams.get('name') || 'N/A';
-	  const learner_ic = urlParams.get('ic') || 'N/A';
-	  const date = urlParams.get('date') || 'N/A';
-	
-	  window.onload = function () {
-	    window.print();
-	  }
-	</script>
 
+<script type="text/javascript">
+  const urlParams = new URLSearchParams(window.location.search);
+  const learner_name = urlParams.get('name') || 'N/A';
+  const learner_ic = urlParams.get('ic') || 'N/A';
+  const date = urlParams.get('date') || 'N/A';
+
+  window.onload = function () {
+    window.print();
+  }
+</script>
 
 <table width="900" height="1141" border="0" align="center" valign="middle">
   <tr align="center" valign="middle">
-    <td width="900" height="290"><p><img src="images/1.gif" width="900" height="288"></p></td>
+    <td width="900" height="290">
+      <p><img src="images/1.gif" width="900" height="288"></p>
+    </td>
   </tr>
   <tr>
-    <td height="845" align="center" valign="middle"><p>&nbsp;</p>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-  <p><font face="arial" size="5">This is to certify that</font></p>
-  <p><b><font face="arial" size="6"><script>document.write(learner_name);</script></font></b></p>
-  <p><b><font face="arial" size="5">(<script>document.write(learner_ic);</script>)</font></b></p>
-  <p><font face="arial" size="5">has completed the eLearning module titled</font></p>
-  <p><b><font face="arial" size="6">Noise & Hearing Conversation Awareness</font></b></p>
-  <p><font face="arial" size="5">on</font></p>
-  <p><b><font face="arial" size="5"><script>document.write(date);</script></font></b></p>
-  <p>&nbsp;</p>
-  <p><img src="images/2.gif"></p></td>
+    <td height="845" align="center" valign="middle">
+      <p><font face="arial" size="5">This is to certify that</font></p>
+      <p><b><font face="arial" size="6" id="name"></font></b></p>
+      <p><b><font face="arial" size="5" id="ic"></font></b></p>
+      <p><font face="arial" size="5">has completed the eLearning module titled</font></p>
+      <p><b><font face="arial" size="6">Noise & Hearing Conversation Awareness</font></b></p>
+      <p><font face="arial" size="5">on</font></p>
+      <p><b><font face="arial" size="5" id="date"></font></b></p>
+      <p><img src="images/2.gif"></p>
+    </td>
   </tr>
 </table>
+
+<script>
+  document.getElementById("name").textContent = learner_name;
+  document.getElementById("ic").textContent = "(" + learner_ic + ")";
+  document.getElementById("date").textContent = date;
+</script>
+
 </body>
 </html>
