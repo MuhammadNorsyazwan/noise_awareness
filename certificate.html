@@ -1,45 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Certificate of Attendance</title>
+  <meta charset="UTF-8">
+  <title>Certificate</title>
   <style>
-    body, td, th {
-      font-size: large;
-    }
+    body { font-family: Arial; text-align: center; padding-top: 100px; }
+    .certificate { border: 3px solid black; padding: 40px; width: 80%; margin: auto; }
   </style>
 </head>
 <body>
+  <div class="certificate">
+    <h1>Certificate of Completion</h1>
+    <p>This certificate is awarded to</p>
+    <h2 id="name">[Name]</h2>
+    <p>IC: <span id="ic">[IC]</span></p>
+    <p>Date: <span id="date">[Date]</span></p>
+    <button onclick="window.print()">Print</button>
+  </div>
+
   <script>
     const urlParams = new URLSearchParams(window.location.search);
-    const learner_name = urlParams.get('name') || 'N/A';
-    const learner_ic = urlParams.get('ic') || 'N/A';
-    const date = urlParams.get('date') || 'N/A';
+    const name = urlParams.get("name");
+    const ic = urlParams.get("ic");
+    const date = urlParams.get("date");
 
-    window.onload = function () {
-      document.getElementById("name").textContent = learner_name;
-      document.getElementById("ic").textContent = "(" + learner_ic + ")";
-      document.getElementById("date").textContent = date;
-
-      setTimeout(() => window.print(), 1000); // tunggu sikit sebelum auto-print
-    }
+    document.getElementById("name").textContent = name;
+    document.getElementById("ic").textContent = ic;
+    document.getElementById("date").textContent = date;
   </script>
-
-  <table width="900" height="1141" border="0" align="center">
-    <tr align="center">
-      <td><img src="images/1.gif" width="900" height="288"></td>
-    </tr>
-    <tr>
-      <td align="center">
-        <p><font face="arial" size="5">This is to certify that</font></p>
-        <p><b><font face="arial" size="6" id="name"></font></b></p>
-        <p><b><font face="arial" size="5" id="ic"></font></b></p>
-        <p><font face="arial" size="5">has completed the eLearning module titled</font></p>
-        <p><b><font face="arial" size="6">Noise & Hearing Conservation Awareness</font></b></p>
-        <p><font face="arial" size="5">on</font></p>
-        <p><b><font face="arial" size="5" id="date"></font></b></p>
-        <p><img src="images/2.gif"></p>
-      </td>
-    </tr>
-  </table>
 </body>
 </html>
