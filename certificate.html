@@ -4,29 +4,125 @@
   <meta charset="UTF-8">
   <title>Certificate</title>
   <style>
-    body { font-family: Arial; text-align: center; padding-top: 100px; }
-    .certificate { border: 3px solid black; padding: 40px; width: 80%; margin: auto; }
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .certificate {
+      border: 5px solid #000;
+      padding: 40px;
+      width: 80%;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    #name {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    #ic, #date {
+      font-size: 18px;
+    }
   </style>
 </head>
 <body>
   <div class="certificate">
     <h1>Certificate of Completion</h1>
-    <p>This certificate is awarded to</p>
-    <h2 id="name">[Name]</h2>
-    <p>IC: <span id="ic">[IC]</span></p>
+    <p>This certificate is proudly presented to</p>
+    <p id="name">[Name]</p>
+    <p>IC Number: <span id="ic">[IC]</span></p>
     <p>Date: <span id="date">[Date]</span></p>
-    <button onclick="window.print()">Print</button>
+    <br><br>
+    <button onclick="window.print()">Print Certificate</button>
   </div>
 
   <script>
+    // Ambil parameter dari URL
     const urlParams = new URLSearchParams(window.location.search);
     const name = urlParams.get("name");
     const ic = urlParams.get("ic");
     const date = urlParams.get("date");
 
-    document.getElementById("name").textContent = name;
-    document.getElementById("ic").textContent = ic;
-    document.getElementById("date").textContent = date;
+    // Tunjuk dalam sijil
+    document.getElementById("name").textContent = name || "[Name]";
+    document.getElementById("ic").textContent = ic || "[IC]";
+    document.getElementById("date").textContent = date || "[Date]";
+
+    // Auto print bila page dibuka (optional)
+    window.onload = function () {
+      window.print();
+    }
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .certificate {
+      border: 5px solid #000;
+      padding: 40px;
+      width: 80%;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    #name {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    #ic, #date {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="certificate">
+    <h1>Certificate of Completion</h1>
+    <p>This certificate is proudly presented to</p>
+    <p id="name">[Name]</p>
+    <p>IC Number: <span id="ic">[IC]</span></p>
+    <p>Date: <span id="date">[Date]</span></p>
+    <br><br>
+    <button onclick="window.print()">Print Certificate</button>
+  </div>
+
+  <script>
+    // Ambil parameter dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get("name");
+    const ic = urlParams.get("ic");
+    const date = urlParams.get("date");
+
+    // Tunjuk dalam sijil
+    document.getElementById("name").textContent = name || "[Name]";
+    document.getElementById("ic").textContent = ic || "[IC]";
+    document.getElementById("date").textContent = date || "[Date]";
+
+    // Auto print bila page dibuka (optional)
+    window.onload = function () {
+      window.print();
+    }
   </script>
 </body>
 </html>
