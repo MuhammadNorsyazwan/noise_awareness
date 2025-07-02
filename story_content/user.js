@@ -1,4 +1,4 @@
-tfunction ExecuteScript(strId)
+function ExecuteScript(strId)
 {
   switch (strId)
   {
@@ -14,12 +14,12 @@ tfunction ExecuteScript(strId)
 function Script1()
 {
   var currentTime = new Date()
-var month = currentTime.getMonth() + 1
-var day = currentTime.getDate()
-var year = currentTime.getFullYear()
-var dateString=day + "/" + month + "/" + year
-var player = GetPlayer();
-player.SetVar("SystemDate",dateString);
+  var month = currentTime.getMonth() + 1
+  var day = currentTime.getDate()
+  var year = currentTime.getFullYear()
+  var dateString = day + "/" + month + "/" + year
+  var player = GetPlayer();
+  player.SetVar("SystemDate", dateString);
 }
 
 function Script2() {
@@ -33,7 +33,6 @@ function Script2() {
                   "&ic=" + encodeURIComponent(theic) + 
                   "&date=" + encodeURIComponent(thedate);
 
-  window.open(urlstring, "_blank");
+  // TUKAR SINI! ✅
+  window.location.href = urlstring;
 }
-
-
